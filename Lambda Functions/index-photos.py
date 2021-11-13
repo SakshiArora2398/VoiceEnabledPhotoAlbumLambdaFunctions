@@ -14,10 +14,11 @@ def lambda_handler(event, context):
         PHOTO_BUCKET = record['s3']['bucket']['name']
         FILE_NAME = record['s3']['object']['key']
         response = s3_client.head_object(Bucket=PHOTO_BUCKET, Key=FILE_NAME)
-        custlabel=response['ResponseMetadata']['HTTPHeaders']['x-amz-meta-customlabels']
-        custlabellist=custlabel.split(',')
-        for cust in custlabellist:
-            label_list.append(cust)
+        if ('x-amz-meta-customlabels' in response['ResponseMetadata']['HTTPHeaders']):
+            custlabel=response['ResponseMetadata']['HTTPHeaders']['x-amz-meta-customlabels']
+            custlabellist=custlabel.split(',')
+            for cust in custlabellist:
+                label_list.append(cust)
 
 
     print('reading image: {} from s3 bucket {}'.format(FILE_NAME, PHOTO_BUCKET))

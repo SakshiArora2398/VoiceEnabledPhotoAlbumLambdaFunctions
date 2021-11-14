@@ -4,6 +4,7 @@ import boto3
 import data_index
 
 def lambda_handler(event, context):
+    print("test")
     print(event)
     lex_client=boto3.client('lex-runtime')
     q=event["queryStringParameters"]["q"]

@@ -5,24 +5,21 @@ import data_index
 
 def lambda_handler(event, context):
     print(event)
-#     lex = boto3.client('lex-runtime')
-#     query = event["queryStringParameters"]["q"]
-# #     query="show me picture of dog"
-#     lex_response = lex.post_text(
-#         botName='NLPControlledPhotoAlbum',
-#         botAlias='photoalbum',
-#         userId='Twisha',
-#         inputText=query
-#     )
-#     print("LEX RESPONSE --- {}".format(json.dumps(lex_response)))
+    lex = boto3.client('lex-runtime')
+    query = event["queryStringParameters"]["q"]
+    lex_response = lex.post_text(
+        botName='NLPControlledPhotoAlbum',
+        botAlias='photoalbum',
+        userId='Twisha',
+        inputText=query
+    )
+    print("LEX RESPONSE --- {}".format(json.dumps(lex_response)))
 
-#     query = lex_response['slots']['searchque']
-# #    query = event['currentIntent']['slots']['searchque'] fffff
-#     print('query', query)
+    query = lex_response['slots']['searchque']
+#    query = event['currentIntent']['slots']['searchque']
+    print('query', query)
 
-#     keys = query.split(',')
-    keys = []
-    keys.append("dog")
+    keys = query.split(',')
     Res = []
     es = data_index.connect_to_elastic_search()
     out = []

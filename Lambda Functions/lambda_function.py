@@ -6,8 +6,7 @@ import data_index
 def lambda_handler(event, context):
     print(event)
     lex = boto3.client('lex-runtime')
-    query = event["queryStringParameters"]["q"]
-#     query = event["q"]
+#     query = event["queryStringParameters"]["q"]
     lex_response = lex.post_text(
         botName='NLPControlledPhotoAlbum',
         botAlias='photoalbum',
@@ -16,8 +15,9 @@ def lambda_handler(event, context):
     )
     print("LEX RESPONSE --- {}".format(json.dumps(lex_response)))
 
-    query = lex_response['slots']['searchque']
-#    query = event['currentIntent']['slots']['searchque']
+#     query = lex_response['slots']['searchque']
+#    query = event['currentIntent']['slots']['searchque'] fffff
+    query="show me picture of dog"
     print('query', query)
 
     keys = query.split(',')

@@ -20,7 +20,9 @@ def lambda_handler(event, context):
 #    query = event['currentIntent']['slots']['searchque'] fffff
     print('query', query)
 
-    keys = query.split(',')
+#     keys = query.split(',')
+    keys = []
+    keys.append("dog")
     Res = []
     es = data_index.connect_to_elastic_search()
     out = []

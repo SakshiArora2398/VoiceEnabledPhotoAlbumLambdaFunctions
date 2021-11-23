@@ -6,8 +6,8 @@ import data_index
 def lambda_handler(event, context):
     print(event)
     lex = boto3.client('lex-runtime')
-#     query = event["queryStringParameters"]["q"]
-    query = event["q"]
+    query = event["queryStringParameters"]["q"]
+#     query = event["q"]
     lex_response = lex.post_text(
         botName='NLPControlledPhotoAlbum',
         botAlias='photoalbum',

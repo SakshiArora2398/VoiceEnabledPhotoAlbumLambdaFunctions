@@ -18,6 +18,7 @@ def lambda_handler(event, context):
     query = lex_response['slots']['searchque']
 #    query = event['currentIntent']['slots']['searchque']
     print('query', query)
+#     see change in pipeline
 
     keys = query.split(',')
     Res = []

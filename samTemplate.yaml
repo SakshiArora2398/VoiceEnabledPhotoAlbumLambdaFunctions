@@ -11,10 +11,7 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 3
-      Role: 'arn:aws:iam::524329147305:role/service-role/search-photos-role-rtsnuaau'
+      Role: 
       VpcConfig:
         SecurityGroupIds:
-          - sg-031a77edeaaf64dde
         SubnetIds:
-          - subnet-0e5ce97f86d65e44b
-          - subnet-0efad0ee3db1ec0de
